@@ -28,13 +28,13 @@ fs.readFile('input.txt', (err, data) => {
                     arr = [];
                 }
             }
-            if (char == currentLine.length - 1) {
+            if (char == currentLine.length - 1 && currentLine[char] >= '0' && currentLine[char] <= '9') {
                 endOfLine = true;
                 break;
             }
-            if (line == 1) {
-                console.log(arr);
-            }
+            // if (line == 1) {
+            //     console.log(arr);
+            // }
         }
     }
     console.log(answer);
@@ -77,7 +77,7 @@ function checkBoundaries(arr, answer, lines, line) {
         for (var i = 0; i < arr.length; i++) {
             concatStr = concatStr + arr[i].val;
         }
-        //console.log(concatStr);
+        console.log("line: " + line + " value: " + concatStr);
         answer = answer + parseInt(concatStr);
         //console.log("line: " + line + " value: " + parseInt(concatStr) + "   total: " + answer);
         addToTotal = false;

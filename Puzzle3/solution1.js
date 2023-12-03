@@ -20,7 +20,6 @@ fs.readFile('input.txt', (err, data) => {
                     val: currentLine[char],
                     idx: char,
                 }
-                //console.log(currentLine[char] + " added to arr");
                 arr.push(obj);
             } else {
                 if (arr.length > 0 && endOfLine == false) {
@@ -32,9 +31,6 @@ fs.readFile('input.txt', (err, data) => {
                 endOfLine = true;
                 break;
             }
-            // if (line == 1) {
-            //     console.log(arr);
-            // }
         }
     }
     console.log(answer);
@@ -59,11 +55,9 @@ function checkBoundaries(arr, answer, lines, line) {
     if (bottom >= lines.length) {
         bottom = bottom - 1;
     }
-    //console.log("top: " + top + " bottom: " + bottom + " left: " + left + " right: " + right);
     for (var i = top; i <= bottom; i++) {
         for (var j = left; j <= right; j++) {
             var c = lines[i][j];
-            //console.log(c + " i: " + i + " j: " + j);
             for (var symbol = 0; symbol < symbols.length; symbol++) {
                 if (c === symbols[symbol]) {
                     addToTotal = true;
@@ -77,9 +71,7 @@ function checkBoundaries(arr, answer, lines, line) {
         for (var i = 0; i < arr.length; i++) {
             concatStr = concatStr + arr[i].val;
         }
-        console.log("line: " + line + " value: " + concatStr);
         answer = answer + parseInt(concatStr);
-        //console.log("line: " + line + " value: " + parseInt(concatStr) + "   total: " + answer);
         addToTotal = false;
     }
     return answer;
